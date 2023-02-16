@@ -25,13 +25,15 @@ public class Application implements Consumer<Event> {
      */
     private final Label label;
 
-
-    // конструктор приложения
+    /**
+     * Конструктор окна приложения
+     */
     public Application() {
         // создаём окно
         window = App.makeWindow();
+// создаём первый заголовок
+        label = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, "Привет, мир!", true, true);
         // задаём обработчиком событий текущий объект
-        label = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, "Привет, мир!");
         window.setEventListener(this);
         // делаем окно видимым
         window.setVisible(true);
@@ -115,10 +117,9 @@ public class Application implements Consumer<Event> {
         // восстанавливаем состояние канваса
         canvas.restore();
     }
+//
+     //* радиус скругления элементов
 
-    /**
-     * радиус скругления элементов
-     */
     public static final int C_RAD_IN_PX = 4;
     /**
      * отступы панелей
