@@ -1,5 +1,6 @@
 package app;
 
+import controls.Label;
 import io.github.humbleui.jwm.*;
 import io.github.humbleui.jwm.skija.EventFrameSkija;
 import io.github.humbleui.skija.Canvas;
@@ -95,25 +96,34 @@ public class Application implements Consumer<Event> {
      * @param windowCS СК окна
      */
     public void paint(Canvas canvas, CoordinateSystem2i windowCS) {
-        // запоминаем изменения (пока что там просто заливка цветом)
-        canvas.save();
-        // очищаем канвас
-        canvas.clear(APP_BACKGROUND_COLOR);
-        // создаём кисть
-        Paint paint = new Paint();
-        // задаём цвет рисования
-        paint.setColor(Misc.getColor(100, 255, 255, 255));
-        CoordinateSystem2i rectCS = new CoordinateSystem2i(
-                windowCS.getSize().x / 3, windowCS.getSize().y / 3,
-                windowCS.getSize().x / 3, windowCS.getSize().y / 3
-        );
-        // рисуем квадрат
-        canvas.drawRRect(rectCS.getRRect(4), paint);
-        // восстанавливаем состояние канваса
-        canvas.restore();
-    }
+        /**
+         * Рисование
+         *
+         * @param canvas   низкоуровневый инструмент рисования примитивов от Skija
+         * @param windowCS СК окна
+         */
+
+            // запоминаем изменения (пока что там просто заливка цветом)
+            canvas.save();
+            // очищаем канвас
+            canvas.clear(APP_BACKGROUND_COLOR);
+            // рисуем заголовок
+            label.paint(canvas, windowCS);
+            // восстанавливаем состояние канваса
+            canvas.restore();
+        }
+
     /**
      * радиус скругления элементов
      */
     public static final int C_RAD_IN_PX = 4;
+    /**
+     * отступы панелей
+     */
+    public static final int PANEL_PADDING = 5;
+    /**
+     * Первый заголовок
+     */
+    private final Label label;
+
     }

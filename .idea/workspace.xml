@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="int cs" />
+    <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="panel created">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/Fonts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controls/Label.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Colors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Colors.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,7 +62,8 @@
       <workItem from="1674121141394" duration="977000" />
       <workItem from="1674724715760" duration="2214000" />
       <workItem from="1675066601117" duration="5485000" />
-      <workItem from="1675328679629" duration="1593000" />
+      <workItem from="1675328679629" duration="2341000" />
+      <workItem from="1676270243195" duration="1416000" />
     </task>
     <task id="LOCAL-00001" summary="skija connected">
       <created>1674121663690</created>
@@ -121,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675329559690</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="panel created">
+      <created>1675331025109</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1675331025109</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +162,7 @@
     <MESSAGE value="drawign rect works" />
     <MESSAGE value="int vector" />
     <MESSAGE value="int cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="int cs" />
+    <MESSAGE value="panel created" />
+    <option name="LAST_COMMIT_MESSAGE" value="panel created" />
   </component>
 </project>
