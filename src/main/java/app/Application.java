@@ -14,17 +14,24 @@ import java.io.File;
 import java.util.function.Consumer;
 
 import static app.Colors.APP_BACKGROUND_COLOR;
+import static app.Colors.PANEL_BACKGROUND_COLOR;
 import static io.github.humbleui.jwm.Platform.WINDOWS;
 
 public class Application implements Consumer<Event> {
     // окно приложения
     private final Window window;
+    /**
+     * Первый заголовок
+     */
+    private final Label label;
+
 
     // конструктор приложения
     public Application() {
         // создаём окно
         window = App.makeWindow();
         // задаём обработчиком событий текущий объект
+        label = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, "Привет, мир!");
         window.setEventListener(this);
         // делаем окно видимым
         window.setVisible(true);
@@ -75,7 +82,7 @@ public class Application implements Consumer<Event> {
             App.terminate();
         } else if (e instanceof EventWindowCloseRequest) {
             window.close();
-        }else if (e instanceof EventFrameSkija ee) {
+        } else if (e instanceof EventFrameSkija ee) {
             // получаем поверхность рисования
             Surface s = ee.getSurface();
             // очищаем её канвас заданным цветом
@@ -96,22 +103,18 @@ public class Application implements Consumer<Event> {
      * @param windowCS СК окна
      */
     public void paint(Canvas canvas, CoordinateSystem2i windowCS) {
-        /**
-         * Рисование
-         *
-         * @param canvas   низкоуровневый инструмент рисования примитивов от Skija
-         * @param windowCS СК окна
-         */
 
-            // запоминаем изменения (пока что там просто заливка цветом)
-            canvas.save();
-            // очищаем канвас
-            canvas.clear(APP_BACKGROUND_COLOR);
-            // рисуем заголовок
-            label.paint(canvas, windowCS);
-            // восстанавливаем состояние канваса
-            canvas.restore();
-        }
+        // запоминаем изменения (пока что там просто заливка цветом)
+        canvas.save();
+        // очищаем канвас
+        canvas.clear(APP_BACKGROUND_COLOR);
+        // рисуем заголовок
+        // рисуем заголовок в точке [100,100] с шириной и выостой 200
+        label.paint(canvas, new CoordinateSystem2i(100, 100, 200, 200));
+
+        // восстанавливаем состояние канваса
+        canvas.restore();
+    }
 
     /**
      * радиус скругления элементов
@@ -124,6 +127,6 @@ public class Application implements Consumer<Event> {
     /**
      * Первый заголовок
      */
-    private final Label label;
 
-    }
+
+}

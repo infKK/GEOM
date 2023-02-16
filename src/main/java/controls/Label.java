@@ -64,7 +64,7 @@ public class Label extends Panel {
      */
     @Override
     public void accept(Event e) {
-        label = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, "Привет, мир!");
+
         }
     }
 
