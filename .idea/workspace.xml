@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="render text">
+    <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="text centering works">
+      <change afterPath="$PROJECT_DIR$/src/main/java/panels/GridPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controls/Label.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controls/Label.java" afterDir="false" />
@@ -82,7 +83,7 @@
       <workItem from="1675066601117" duration="5485000" />
       <workItem from="1675328679629" duration="2341000" />
       <workItem from="1676270243195" duration="1416000" />
-      <workItem from="1676535581146" duration="1862000" />
+      <workItem from="1676535581146" duration="4023000" />
     </task>
     <task id="LOCAL-00001" summary="skija connected">
       <created>1674121663690</created>
@@ -161,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676536588498</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="text centering works">
+      <created>1676537542698</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1676537542698</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +198,7 @@
     <MESSAGE value="int cs" />
     <MESSAGE value="panel created" />
     <MESSAGE value="render text" />
-    <option name="LAST_COMMIT_MESSAGE" value="render text" />
+    <MESSAGE value="text centering works" />
+    <option name="LAST_COMMIT_MESSAGE" value="text centering works" />
   </component>
 </project>

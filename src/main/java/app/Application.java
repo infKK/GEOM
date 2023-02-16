@@ -21,10 +21,16 @@ public class Application implements Consumer<Event> {
     // окно приложения
     private final Window window;
     /**
+   
+    /**
      * Первый заголовок
      */
     private final Label label;
-
+    private final Label label2;
+    /**
+     * Первый заголовок
+     */
+    private final Label label3;
     /**
      * Конструктор окна приложения
      */
@@ -32,7 +38,17 @@ public class Application implements Consumer<Event> {
         // создаём окно
         window = App.makeWindow();
 // создаём первый заголовок
-        label = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, "Привет, мир!", true, true);
+        label = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING,
+                4, 4, 1, 1, 1, 1, "Привет, мир!", true, true);
+
+        // создаём второй заголовок
+        label2 = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING,
+                4, 4, 0, 3, 1, 1, "Второй заголовок", true, true);
+
+        // создаём третий заголовок
+        label3 = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING,
+                4, 4, 2, 0, 1, 1, "Это тоже заголовок", true, true);
+
         // задаём обработчиком событий текущий объект
         window.setEventListener(this);
         // делаем окно видимым
@@ -69,6 +85,7 @@ public class Application implements Consumer<Event> {
             throw new RuntimeException("Нет доступных слоёв для создания");
         // делаем окно видимым
         window.setVisible(true);
+
     }
 
     /**
@@ -95,27 +112,25 @@ public class Application implements Consumer<Event> {
      * Рисование
      *
      * @param canvas низкоуровневый инструмент рисования примитивов от Skija
-     * @param height высота окна
-     * @param width  ширина окна
-     */
-    /**
-     * Рисование
-     *
      * @param canvas   низкоуровневый инструмент рисования примитивов от Skija
      * @param windowCS СК окна
      */
     public void paint(Canvas canvas, CoordinateSystem2i windowCS) {
-
         // запоминаем изменения (пока что там просто заливка цветом)
         canvas.save();
         // очищаем канвас
         canvas.clear(APP_BACKGROUND_COLOR);
-        // рисуем заголовок
-        // рисуем заголовок в точке [100,100] с шириной и выостой 200
-        label.paint(canvas, new CoordinateSystem2i(100, 100, 200, 200));
 
+
+        label.paint(canvas, windowCS);
+        // рисуем второй заголовок
+        label2.paint(canvas, windowCS);
+        // рисуем третий заголовок
+        label3.paint(canvas, windowCS);
         // восстанавливаем состояние канваса
         canvas.restore();
+
+
     }
 //
      //* радиус скругления элементов
