@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="text centering works">
-      <change afterPath="$PROJECT_DIR$/src/main/java/panels/PanelControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panels/PanelHelp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panels/PanelLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panels/PanelRendering.java" afterDir="false" />
+    <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="4 panels">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/Point.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/misc/Vector2d.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/panels/PanelRendering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panels/PanelRendering.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +97,7 @@
       <workItem from="1675328679629" duration="2341000" />
       <workItem from="1676270243195" duration="1416000" />
       <workItem from="1676535581146" duration="4023000" />
-      <workItem from="1676874369756" duration="940000" />
+      <workItem from="1676874369756" duration="2702000" />
     </task>
     <task id="LOCAL-00001" summary="skija connected">
       <created>1674121663690</created>
@@ -183,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676537542698</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="4 panels">
+      <created>1676875451616</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1676875451616</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +220,7 @@
     <MESSAGE value="panel created" />
     <MESSAGE value="render text" />
     <MESSAGE value="text centering works" />
-    <option name="LAST_COMMIT_MESSAGE" value="text centering works" />
+    <MESSAGE value="4 panels" />
+    <option name="LAST_COMMIT_MESSAGE" value="4 panels" />
   </component>
 </project>

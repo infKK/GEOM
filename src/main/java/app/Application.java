@@ -38,11 +38,17 @@ public class Application implements Consumer<Event> {
     /**
      * панель курсора мыши
      */
+    /**
+     * Представление проблемы
+     */
+    public static Task task;
     private final PanelControl panelControl;
     /**
      * панель рисования
      */
-    private final PanelRendering panelRendering;
+    /**
+     */
+     private final PanelRendering panelRendering;
     /**
      * панель событий
      */
