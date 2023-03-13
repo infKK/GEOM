@@ -37,7 +37,10 @@ public class PanelControl extends GridPanel {
      * Поля ввода
      */
     public List<Input> inputs;
-
+    /**
+     * Кнопки
+     */
+    public List<Button> buttons;
     /**
      * Панель управления
      *
@@ -62,6 +65,8 @@ public class PanelControl extends GridPanel {
         inputs = new ArrayList<>();
         labels = new ArrayList<>();
 
+        buttons = new ArrayList<>();
+
         // задание
         task = new MultiLineLabel(
                 window, false, backgroundColor, PANEL_PADDING,
@@ -82,6 +87,7 @@ public class PanelControl extends GridPanel {
                 6, 7, 4, 2, 2, 1, "0.0", true,
                 FIELD_TEXT_COLOR, true);
         inputs.add(yField);
+        
     }
 
     /**
