@@ -14,6 +14,14 @@ public class InputFactory {
     /**
      * Поля ввода
      */
+    /**
+     * Снять фокус со всех полей ввода
+     */
+    public static void defocusAll() {
+        // снимаем фокусы
+        for (Input input : inputs)
+            input.focused = false;
+    }
     private static final List<Input> inputs = new ArrayList<>();
     /**
      * Таймер
