@@ -9,6 +9,7 @@ import io.github.humbleui.types.IRect;
 import misc.CoordinateSystem2i;
 import misc.Vector2i;
 
+import static app.Application.PANEL_PADDING;
 import static app.Colors.BUTTON_COLOR;
 
 /**
@@ -48,6 +49,7 @@ public class Button extends MultiLineLabel {
                 gridX, gridY, colspan, rowspan, text, centered, vcentered
         );
         selected = false;
+
     }
 
     /**
