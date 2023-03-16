@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="buttons work">
+    <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="random points">
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/panels/PanelControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panels/PanelControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/panels/PanelRendering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panels/PanelRendering.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +85,7 @@
       <workItem from="1676874369756" duration="3016000" />
       <workItem from="1678084464672" duration="4587000" />
       <workItem from="1678688568538" duration="4781000" />
-      <workItem from="1678957682934" duration="1063000" />
+      <workItem from="1678957682934" duration="1515000" />
     </task>
     <task id="LOCAL-00001" summary="skija connected">
       <created>1674121663690</created>
@@ -249,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678958478608</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="random points">
+      <created>1678958778824</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1678958778824</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +296,7 @@
     <MESSAGE value="input tab works" />
     <MESSAGE value="last" />
     <MESSAGE value="buttons work" />
-    <option name="LAST_COMMIT_MESSAGE" value="buttons work" />
+    <MESSAGE value="random points" />
+    <option name="LAST_COMMIT_MESSAGE" value="random points" />
   </component>
 </project>
