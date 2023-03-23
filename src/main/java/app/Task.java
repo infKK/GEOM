@@ -7,6 +7,7 @@ import io.github.humbleui.jwm.MouseButton;
 import io.github.humbleui.skija.Canvas;
 import io.github.humbleui.skija.Paint;
 import io.github.humbleui.skija.Rect;
+import lombok.Getter;
 import misc.CoordinateSystem2d;
 import misc.CoordinateSystem2i;
 import misc.Vector2d;
@@ -36,10 +37,12 @@ public class Task {
     /**
      * Вещественная система координат задачи
      */
+    @Getter
     private final CoordinateSystem2d ownCS;
     /**
      * Список точек
      */
+    @Getter
     private final ArrayList<Point> points;
     /**
      * Размер точки

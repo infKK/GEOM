@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="control beginning">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/conf.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Point.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/panels/PanelRendering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panels/PanelRendering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2d.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2i.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2i.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/conf.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/conf.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +90,7 @@
       <workItem from="1678084464672" duration="4587000" />
       <workItem from="1678688568538" duration="4781000" />
       <workItem from="1678957682934" duration="2916000" />
+      <workItem from="1679562742681" duration="1888000" />
     </task>
     <task id="LOCAL-00001" summary="skija connected">
       <created>1674121663690</created>
