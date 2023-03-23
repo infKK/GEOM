@@ -1,6 +1,7 @@
 package app;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.github.humbleui.jwm.MouseButton;
@@ -185,4 +186,16 @@ public class Task {
     public boolean isSolved() {
         return solved;
     }
+    /**
+     * Список точек в пересечении
+     */
+    @Getter
+    @JsonIgnore
+    private final ArrayList<Point> crossed;
+    /**
+     * Список точек в разности
+     */
+    @Getter
+    @JsonIgnore
+    private final ArrayList<Point> single;
 }
