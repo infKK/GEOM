@@ -18,6 +18,9 @@ import panels.PanelLog;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
+import static app.Colors.CROSSED_COLOR;
+import static app.Colors.SUBTRACTED_COLOR;
+
 /**
  * Класс задачи
  */
@@ -46,6 +49,19 @@ public class Task {
     @Getter
     private final ArrayList<Point> points;
     /**
+     * Список точек в пересечении
+     */
+
+    @Getter
+    @JsonIgnore
+    private final ArrayList<Point> crossed;
+    /**
+     * Список точек в разности
+     */
+    @Getter
+    @JsonIgnore
+    private final ArrayList<Point> single;
+    /**
      * Размер точки
      */
     private static final int POINT_SIZE = 3;
@@ -63,6 +79,8 @@ public class Task {
     ) {
         this.ownCS = ownCS;
         this.points = points;
+        this.crossed = new ArrayList<>();
+        this.single = new ArrayList<>();
     }
 
     /**
@@ -71,13 +89,28 @@ public class Task {
      * @param canvas   область рисования
      * @param windowCS СК окна
      */
+    /**
+     * Рисование задачи
+     *
+     * @param canvas   область рисования
+     * @param windowCS СК окна
+     */
     public void paint(Canvas canvas, CoordinateSystem2i windowCS) {
+        // Сохраняем последнюю СК
+        lastWindowCS = windowCS;
+
         canvas.save();
         // создаём перо
         try (var paint = new Paint()) {
             for (Point p : points) {
-                // получаем цвет точки
-                paint.setColor(p.getColor());
+                if (!solved) {
+                    paint.setColor(p.getColor());
+                } else {
+                    if (crossed.contains(p))
+                        paint.setColor(CROSSED_COLOR);
+                    else
+                        paint.setColor(SUBTRACTED_COLOR);
+                }
                 // y-координату разворачиваем, потому что у СК окна ось y направлена вниз,
                 // а в классическом представлении - вверх
                 Vector2i windowPos = windowCS.getCoords(p.pos.x, p.pos.y, ownCS);
@@ -85,8 +118,7 @@ public class Task {
                 canvas.drawRect(Rect.makeXYWH(windowPos.x - POINT_SIZE, windowPos.y - POINT_SIZE, POINT_SIZE * 2, POINT_SIZE * 2), paint);
             }
         }
-        canvas.restore();        // Сохраняем последнюю СК
-        lastWindowCS = windowCS;
+        canvas.restore();
     }
     /**
      * Клик мыши по пространству задачи
@@ -112,12 +144,8 @@ public class Task {
      * @param pos      положение
      * @param pointSet множество
      */
-    /**
-     * Добавить точку
-     *
-     * @param pos      положение
-     * @param pointSet множество
-     */
+
+
     public void addPoint(Vector2d pos, Point.PointSet pointSet) {
         solved = false;
         Point newPoint = new Point(pos, pointSet);
@@ -165,6 +193,30 @@ public class Task {
      * Решить задачу
      */
     public void solve() {
+        // очищаем списки
+        crossed.clear();
+        single.clear();
+
+        // перебираем пары точек
+        for (int i = 0; i < points.size(); i++) {
+            for (int j = i + 1; j < points.size(); j++) {
+                // сохраняем точки
+                Point a = points.get(i);
+                Point b = points.get(j);
+                // если точки совпадают по положению
+                if (a.pos.equals(b.pos) && !a.pointSet.equals(b.pointSet)) {
+                    if (!crossed.contains(a)){
+                        crossed.add(a);
+                        crossed.add(b);
+                    }
+                }
+            }
+        }
+
+        /// добавляем вс
+        for (Point point : points)
+            if (!crossed.contains(point))
+                single.add(point);
         solved = true;
         PanelLog.warning("Вызван метод solve()\n Пока что решения нет");
     }
@@ -183,19 +235,10 @@ public class Task {
      *
      * @return флаг
      */
+
+
     public boolean isSolved() {
         return solved;
     }
-    /**
-     * Список точек в пересечении
-     */
-    @Getter
-    @JsonIgnore
-    private final ArrayList<Point> crossed;
-    /**
-     * Список точек в разности
-     */
-    @Getter
-    @JsonIgnore
-    private final ArrayList<Point> single;
+
 }
