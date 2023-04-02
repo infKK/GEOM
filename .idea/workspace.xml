@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="json works">
+    <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="solve demo">
+      <change afterPath="$PROJECT_DIR$/src/test/java/UnitTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Colors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Colors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/panels/PanelControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panels/PanelControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/conf.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/conf.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +49,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "openjdk-20",
     "last_opened_file_path": "C:/Users/стас/Desktop/Школьный_проект",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -61,7 +62,7 @@
       <recent name="H:\java\GEOM\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.UnitTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="GEOM" />
@@ -75,8 +76,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GEOM" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UnitTest.firstTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GEOM" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UnitTest" />
+      <option name="METHOD_NAME" value="firstTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UnitTest" />
+        <item itemvalue="JUnit.UnitTest.firstTest" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -283,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679564660750</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="solve demo">
+      <created>1680364833041</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1680364833041</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +330,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Classes" />
     <MESSAGE value="window title ready" />
     <MESSAGE value="window icon ready" />
     <MESSAGE value="canvas works" />
@@ -326,6 +354,7 @@
     <MESSAGE value="random points" />
     <MESSAGE value="control beginning" />
     <MESSAGE value="json works" />
-    <option name="LAST_COMMIT_MESSAGE" value="json works" />
+    <MESSAGE value="solve demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="solve demo" />
   </component>
 </project>
