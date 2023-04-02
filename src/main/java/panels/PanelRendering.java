@@ -3,6 +3,7 @@ package panels;
 import misc.CoordinateSystem2d;
 import misc.CoordinateSystem2i;
 
+import misc.Stats;
 import misc.Vector2d;
 
 import app.Task;
@@ -34,7 +35,10 @@ public class PanelRendering extends GridPanel {
 
     public static Task task;
 
-
+    /**
+     * Статистика fps
+     */
+    private final Stats fpsStats = new Stats();
 
     /**
      * Панель управления
@@ -80,6 +84,8 @@ public class PanelRendering extends GridPanel {
     @Override
     public void paintImpl(Canvas canvas, CoordinateSystem2i windowCS) {
         task.paint(canvas, windowCS);
+        // рисуем статистику фпс
+        fpsStats.paint(canvas, windowCS, FONT12, padding);
         if (lastInside && lastMove != null)
             task.paintMouse(canvas, windowCS, FONT12, lastWindowCS.getRelativePos(lastMove));
     }
@@ -146,4 +152,5 @@ public class PanelRendering extends GridPanel {
         PanelLog.info("load from " + path);
         loadFromFile(path);
     }
+
 }
