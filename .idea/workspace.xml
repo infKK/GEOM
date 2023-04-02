@@ -7,10 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="solve demo">
-      <change afterPath="$PROJECT_DIR$/src/test/java/UnitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="unit tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Colors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Colors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2d.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2i.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2i.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680364833041</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="unit tests">
+      <created>1680447287919</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1680447287919</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +339,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="window title ready" />
     <MESSAGE value="window icon ready" />
     <MESSAGE value="canvas works" />
     <MESSAGE value="add setColor()" />
@@ -355,6 +363,7 @@
     <MESSAGE value="control beginning" />
     <MESSAGE value="json works" />
     <MESSAGE value="solve demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="solve demo" />
+    <MESSAGE value="unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="unit tests" />
   </component>
 </project>
