@@ -1,5 +1,6 @@
 package panels;
 
+import dialogs.PanelSelectFile;
 import misc.CoordinateSystem2d;
 import misc.CoordinateSystem2i;
 
@@ -113,16 +114,31 @@ public class PanelRendering extends GridPanel {
     /**
      * Сохранить файл
      */
-
     public static void save() {
-        String path = "src/main/resources/conf.json";
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writeValue(new File(path), task);
-            PanelLog.success("Файл " + path + " успешно сохранён");
-        } catch (IOException e) {
-            PanelLog.error("не получилось записать файл \n" + e);
-        }
+        PanelSelectFile.show("Выберите файл", path -> {
+            if (!path.isEmpty()) {
+                try {
+                    ObjectMapper objectMapper = new ObjectMapper();
+                    objectMapper.writeValue(new File(path), task);
+                    PanelLog.success("Файл " + path + " успешно сохранён");
+                } catch (IOException e) {
+                    PanelLog.error("не получилось записать файл \n" + e);
+                }
+            }
+        });
+    }
+
+
+    /**
+     * Загрузить файл
+     */
+    public static void load() {
+        PanelSelectFile.show("Выберите файл", s -> {
+            if (!s.isEmpty()) {
+                PanelLog.info("load from " + s);
+                loadFromFile(s);
+            }
+        });
     }
 
     /**
@@ -143,14 +159,6 @@ public class PanelRendering extends GridPanel {
         }
     }
 
-    /**
-     * Загрузить файл
-     */
 
-    public static void load() {
-        String path = "src/main/resources/conf.json";
-        PanelLog.info("load from " + path);
-        loadFromFile(path);
-    }
 
 }
