@@ -1,6 +1,5 @@
 package panels;
 
-import app.Point;
 import app.Task;
 
 import java.util.ArrayList;
@@ -41,6 +40,7 @@ public class PanelControl extends GridPanel {
      * Кнопки
      */
     public List<Button> buttons;
+
     /**
      * Панель управления
      *
@@ -103,12 +103,12 @@ public class PanelControl extends GridPanel {
                             new Vector2d(xField.doubleValue(), yField.doubleValue()), 0
                     );
                     addToFirstSet.text = "Добавить прямоугольник 2";
-                }else if (addToFirstSet.text.equals("Добавить прямоугольник 2")) {
+                } else if (addToFirstSet.text.equals("Добавить прямоугольник 2")) {
                     PanelRendering.task.addRectPoint(
                             new Vector2d(xField.doubleValue(), yField.doubleValue()), 1
                     );
                     addToFirstSet.text = "Добавить прямоугольник 3";
-                }else if (addToFirstSet.text.equals("Добавить прямоугольник 3")) {
+                } else if (addToFirstSet.text.equals("Добавить прямоугольник 3")) {
                     PanelRendering.task.addRectPoint(
                             new Vector2d(xField.doubleValue(), yField.doubleValue()), 2
                     );
@@ -137,7 +137,7 @@ public class PanelControl extends GridPanel {
             if (!cntField.hasValidIntValue()) {
                 PanelLog.warning("кол-во точек указано неверно");
             } else
-                PanelRendering.task.addRandomPoints(cntField.intValue());
+                PanelRendering.task.addRandomCircles(cntField.intValue());
         });
         buttons.add(addPoints);
 // управление
@@ -192,27 +192,6 @@ public class PanelControl extends GridPanel {
                 6, 10, 1, 7, 2, 1, "0.0", true,
                 FIELD_TEXT_COLOR, true);
         inputs.add(xField2);
-
-        Button save2 = new Button(
-                window, false, backgroundColor, PANEL_PADDING,
-                6, 10, 2, 8, 3, 1, "Добавить окружность 1",
-                true, true);
-        save2.setOnClick(()->{
-            if (save2.text.equals("Добавить окружность 1")) {
-                PanelRendering.task.addCirclePoint(
-                        new Vector2d(xField.doubleValue(), yField.doubleValue()), 0
-                );
-                save2.text = "Добавить окружность 2";
-            } else if (save2.text.equals("Добавить окружность 2")) {
-                PanelRendering.task.addCirclePoint(
-                        new Vector2d(xField.doubleValue(), yField.doubleValue()), 1
-                );
-                save2.text = "Добавить окружность 1";
-            }
-        });
-        buttons.add(save2);
-
-
         Label yLabel2 = new Label(window, false, backgroundColor, PANEL_PADDING,
                 6, 10, 3, 7, 1, 1, "Y", true, true);
         labels.add(yLabel2);
@@ -220,6 +199,26 @@ public class PanelControl extends GridPanel {
                 6, 10, 4, 7, 2, 1, "0.0", true,
                 FIELD_TEXT_COLOR, true);
         inputs.add(yField2);
+        Button save2 = new Button(
+                window, false, backgroundColor, PANEL_PADDING,
+                6, 10, 2, 8, 3, 1, "Добавить окружность 1",
+                true, true);
+        save2.setOnClick(() -> {
+            if (save2.text.equals("Добавить окружность 1")) {
+                PanelRendering.task.addCirclePoint(
+                        new Vector2d(xField2.doubleValue(), yField2.doubleValue()), 0
+                );
+                save2.text = "Добавить окружность 2";
+            } else if (save2.text.equals("Добавить окружность 2")) {
+                PanelRendering.task.addCirclePoint(
+                        new Vector2d(xField2.doubleValue(), yField2.doubleValue()), 1
+                );
+                save2.text = "Добавить окружность 1";
+            }
+        });
+        buttons.add(save2);
+
+
         Label cntLabel1 = new Label(window, false, backgroundColor, PANEL_PADDING,
                 6, 10, 0, 9, 1, 1, "Кол-во", true, true);
         labels.add(cntLabel1);
@@ -233,6 +232,13 @@ public class PanelControl extends GridPanel {
                 window, false, backgroundColor, PANEL_PADDING,
                 6, 10, 3, 9, 3, 1, "Добавить\nслучайные окружности",
                 true, true);
+        addPoints1.setOnClick(() -> {   // если числа введены верно
+            if (!cntField1.hasValidIntValue()) {
+                PanelLog.warning("кол-во точек указано неверно");
+            } else
+                PanelRendering.task.addRandomCircles(cntField1.intValue());
+        });
+
         buttons.add(addPoints1);
     }
 
@@ -319,6 +325,7 @@ public class PanelControl extends GridPanel {
             label.paint(canvas, windowCS);
         }
     }
+
     /**
      * Сброс решения задачи
      */
@@ -327,6 +334,7 @@ public class PanelControl extends GridPanel {
         // Задаём новый текст кнопке решения
         solve.text = "Решить";
     }
+
     /**
      * Кнопка "решить"
      */

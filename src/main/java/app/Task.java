@@ -87,7 +87,7 @@ public class Task {
     /**
      * Задача
      *
-     * @param ownCS  СК задачи
+     * @param ownCS   СК задачи
      * @param myRects массив точек
      */
     @JsonCreator
@@ -158,6 +158,7 @@ public class Task {
         // Добавляем в лог запись информации
         PanelLog.info("точка " + pos + " номер " + pointNum);
     }
+
     public void addCirclePoint(Vector2d pos, int pointNum) {
         if (pointNum != 1)
             cPos[pointNum] = pos;
@@ -175,7 +176,7 @@ public class Task {
      *
      * @param cnt кол-во случайных точек
      */
-    public void addRandomPoints(int cnt) {
+    public void addRandomCircles(int cnt) {
         // если создавать точки с полностью случайными координатами,
         // то вероятность того, что они совпадут крайне мала
         // поэтому нужно создать вспомогательную малую целочисленную ОСК
@@ -191,11 +192,11 @@ public class Task {
             Vector2i gridPos = addGrid.getRandomCoords();
             // получаем координаты в СК задачи
             Vector2d pos = ownCS.getCoords(gridPos, addGrid);
-            // сработает примерно в половине случаев
-            if (ThreadLocalRandom.current().nextBoolean())
-                addRectPoint(pos, 0);
-            else
-                addRectPoint(pos, 0);
+            // получаем случайные координаты на решётке
+            Vector2i gridPos2 = addGrid.getRandomCoords();
+            // получаем координаты в СК задачи
+            Vector2d pos2 = ownCS.getCoords(gridPos2, addGrid);
+            myCircles.add(new MyCircle(pos, pos2));
         }
     }
 
@@ -310,20 +311,11 @@ public class Task {
         canvas.save();
         // создаём перо
         try (var paint = new Paint()) {
-            for (Point p : points) {
-                if (!solved) {
-                    paint.setColor(p.getColor());
-                } else {
-                    if (crossed.contains(p))
-                        paint.setColor(CROSSED_COLOR);
-                    else
-                        paint.setColor(SUBTRACTED_COLOR);
-                }
-                // y-координату разворачиваем, потому что у СК окна ось y направлена вниз,
-                // а в классическом представлении - вверх
-                Vector2i windowPos = windowCS.getCoords(p.pos.x, p.pos.y, ownCS);
-                // рисуем точку
-                canvas.drawRect(Rect.makeXYWH(windowPos.x - POINT_SIZE, windowPos.y - POINT_SIZE, POINT_SIZE * 2, POINT_SIZE * 2), paint);
+            for (MyRect p : myRects) {
+                p.paint(canvas, windowCS, ownCS, paint);
+            }
+            for (MyCircle p : myCircles) {
+                p.paint(canvas, windowCS, ownCS, paint);
             }
         }
         canvas.restore();
