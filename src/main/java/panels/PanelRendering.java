@@ -71,7 +71,7 @@ public class PanelRendering extends GridPanel {
         );
 
         // Создаём задачу без точек
-        task = new Task(cs, new ArrayList<>());
+        task = new Task(cs, new ArrayList<>(), new ArrayList<>());
         // Добавляем в нё 10 случайных
         task.addRandomPoints(10);
     }
@@ -106,7 +106,7 @@ public class PanelRendering extends GridPanel {
                 task.scale(ee.getDeltaY(), lastWindowCS.getRelativePos(lastMove));
             window.requestFrame();
         } else if (e instanceof EventMouseButton ee) {
-            if (lastMove != null && lastInside)
+            if (lastMove != null && lastInside && ee.isPressed())
                 task.click(lastWindowCS.getRelativePos(lastMove), ee.getButton());
         }
     }

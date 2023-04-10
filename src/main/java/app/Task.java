@@ -57,6 +57,16 @@ public class Task {
     @Getter
     private final ArrayList<Point> points;
     /**
+     * Список точек
+     */
+    @Getter
+    private final ArrayList<MyRect> myRects;
+    /**
+     * Список точек
+     */
+    @Getter
+    private final ArrayList<MyCircle> myCircles;
+    /**
      * Список точек в пересечении
      */
 
@@ -78,31 +88,23 @@ public class Task {
      * Задача
      *
      * @param ownCS  СК задачи
-     * @param points массив точек
+     * @param myRects массив точек
      */
     @JsonCreator
     public Task(
             @JsonProperty("ownCS") CoordinateSystem2d ownCS,
-            @JsonProperty("points") ArrayList<Point> points
+            @JsonProperty("rects") ArrayList<MyRect> myRects,
+            @JsonProperty("circles") ArrayList<MyCircle> myCircles
     ) {
         this.ownCS = ownCS;
-        this.points = points;
+        this.myRects = myRects;
+        this.myCircles = myCircles;
         this.crossed = new ArrayList<>();
+        this.points = new ArrayList<>();
         this.single = new ArrayList<>();
     }
 
-    /**
-     * Рисование задачи
-     *
-     * @param canvas   область рисования
-     * @param windowCS СК окна
-     */
-    /**
-     * Рисование задачи
-     *
-     * @param canvas   область рисования
-     * @param windowCS СК окна
-     */
+
     /**
      * Рисование
      *
@@ -117,6 +119,7 @@ public class Task {
         // рисуем задачу
         renderTask(canvas, windowCS);
     }
+
     /**
      * Клик мыши по пространству задачи
      *
@@ -129,27 +132,44 @@ public class Task {
         Vector2d taskPos = ownCS.getCoords(pos, lastWindowCS);
         // если левая кнопка мыши, добавляем в первое множество
         if (mouseButton.equals(MouseButton.PRIMARY)) {
-            addPoint(taskPos, Point.PointSet.FIRST_SET);
+            addRectPoint(taskPos, 0);
             // если правая, то во второе
         } else if (mouseButton.equals(MouseButton.SECONDARY)) {
-            addPoint(taskPos, Point.PointSet.SECOND_SET);
+            addRectPoint(taskPos, 1);
         }
     }
+
+    Vector2d[] rPos = new Vector2d[3];
+    Vector2d[] cPos = new Vector2d[2];
+
     /**
      * Добавить точку
      *
-     * @param pos      положение
-     * @param pointSet множество
+     * @param pos положение
      */
-
-
-    public void addPoint(Vector2d pos, Point.PointSet pointSet) {
-        solved = false;
-        Point newPoint = new Point(pos, pointSet);
-        points.add(newPoint);
+    public void addRectPoint(Vector2d pos, int pointNum) {
+        if (pointNum != 2)
+            rPos[pointNum] = pos;
+        else
+            myRects.add(new MyRect(rPos[0], rPos[1], pos));
+//        solved = false;
+//        Point newPoint = new Point(pos, pointSet);
+//        points.add(newPoint);
         // Добавляем в лог запись информации
-        PanelLog.info("точка " + newPoint + " добавлена в " + newPoint.getSetName());
+        PanelLog.info("точка " + pos + " номер " + pointNum);
     }
+    public void addCirclePoint(Vector2d pos, int pointNum) {
+        if (pointNum != 1)
+            cPos[pointNum] = pos;
+        else
+            myCircles.add(new MyCircle(cPos[0], pos));
+//        solved = false;
+//        Point newPoint = new Point(pos, pointSet);
+//        points.add(newPoint);
+        // Добавляем в лог запись информации
+        PanelLog.info("точка " + pos + " номер " + pointNum);
+    }
+
     /**
      * Добавить случайные точки
      *
@@ -173,11 +193,12 @@ public class Task {
             Vector2d pos = ownCS.getCoords(gridPos, addGrid);
             // сработает примерно в половине случаев
             if (ThreadLocalRandom.current().nextBoolean())
-                addPoint(pos, Point.PointSet.FIRST_SET);
+                addRectPoint(pos, 0);
             else
-                addPoint(pos, Point.PointSet.SECOND_SET);
+                addRectPoint(pos, 0);
         }
     }
+
     /**
      * Очистить задачу
      */
@@ -202,7 +223,7 @@ public class Task {
                 Point b = points.get(j);
                 // если точки совпадают по положению
                 if (a.pos.equals(b.pos) && !a.pointSet.equals(b.pointSet)) {
-                    if (!crossed.contains(a)){
+                    if (!crossed.contains(a)) {
                         crossed.add(a);
                         crossed.add(b);
                     }
@@ -217,16 +238,19 @@ public class Task {
         solved = true;
         PanelLog.warning("Вызван метод solve()\n Пока что решения нет");
     }
+
     /**
      * Отмена решения задачи
      */
     public void cancel() {
         solved = false;
     }
+
     /**
      * Флаг, решена ли задача
      */
     private boolean solved;
+
     /**
      * проверка, решена ли задача
      *
@@ -237,6 +261,7 @@ public class Task {
     public boolean isSolved() {
         return solved;
     }
+
     /**
      * Рисование сетки
      *
@@ -274,6 +299,7 @@ public class Task {
         // восстанавливаем область рисования
         canvas.restore();
     }
+
     /**
      * Рисование задачи
      *
@@ -302,6 +328,7 @@ public class Task {
         }
         canvas.restore();
     }
+
     /**
      * Масштабирование области просмотра задачи
      *
@@ -315,6 +342,7 @@ public class Task {
         // выполняем масштабирование
         ownCS.scale(1 + delta * WHEEL_SENSITIVE, realCenter);
     }
+
     /**
      * Получить положение курсора мыши в СК задачи
      *
@@ -327,6 +355,7 @@ public class Task {
     public Vector2d getRealPos(int x, int y, CoordinateSystem2i windowCS) {
         return ownCS.getCoords(x, y, windowCS);
     }
+
     /**
      * Рисование курсора мыши
      *

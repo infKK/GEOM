@@ -89,7 +89,7 @@ public class PanelControl extends GridPanel {
         inputs.add(yField);
         controls.Button addToFirstSet = new controls.Button(
                 window, false, backgroundColor, PANEL_PADDING,
-                6, 10, 2, 3, 3, 1, "Добавить прямоугольник",
+                6, 10, 2, 3, 3, 1, "Добавить прямоугольник 1",
                 true, true);
         addToFirstSet.setOnClick(() -> {
             // если числа введены верно
@@ -97,10 +97,24 @@ public class PanelControl extends GridPanel {
                 PanelLog.warning("X координата введена неверно");
             } else if (!yField.hasValidDoubleValue())
                 PanelLog.warning("Y координата введена неверно");
-            else
-                PanelRendering.task.addPoint(
-                        new Vector2d(xField.doubleValue(), yField.doubleValue()), Point.PointSet.FIRST_SET
-                );
+            else {
+                if (addToFirstSet.text.equals("Добавить прямоугольник 1")) {
+                    PanelRendering.task.addRectPoint(
+                            new Vector2d(xField.doubleValue(), yField.doubleValue()), 0
+                    );
+                    addToFirstSet.text = "Добавить прямоугольник 2";
+                }else if (addToFirstSet.text.equals("Добавить прямоугольник 2")) {
+                    PanelRendering.task.addRectPoint(
+                            new Vector2d(xField.doubleValue(), yField.doubleValue()), 1
+                    );
+                    addToFirstSet.text = "Добавить прямоугольник 3";
+                }else if (addToFirstSet.text.equals("Добавить прямоугольник 3")) {
+                    PanelRendering.task.addRectPoint(
+                            new Vector2d(xField.doubleValue(), yField.doubleValue()), 2
+                    );
+                    addToFirstSet.text = "Добавить прямоугольник 1";
+                }
+            }
         });
         buttons.add(addToFirstSet);
 
@@ -181,9 +195,24 @@ public class PanelControl extends GridPanel {
 
         Button save2 = new Button(
                 window, false, backgroundColor, PANEL_PADDING,
-                6, 10, 2, 8, 3, 1, "Добавить окружность",
+                6, 10, 2, 8, 3, 1, "Добавить окружность 1",
                 true, true);
+        save2.setOnClick(()->{
+            if (save2.text.equals("Добавить окружность 1")) {
+                PanelRendering.task.addCirclePoint(
+                        new Vector2d(xField.doubleValue(), yField.doubleValue()), 0
+                );
+                save2.text = "Добавить окружность 2";
+            } else if (save2.text.equals("Добавить окружность 2")) {
+                PanelRendering.task.addCirclePoint(
+                        new Vector2d(xField.doubleValue(), yField.doubleValue()), 1
+                );
+                save2.text = "Добавить окружность 1";
+            }
+        });
         buttons.add(save2);
+
+
         Label yLabel2 = new Label(window, false, backgroundColor, PANEL_PADDING,
                 6, 10, 3, 7, 1, 1, "Y", true, true);
         labels.add(yLabel2);
@@ -225,8 +254,8 @@ public class PanelControl extends GridPanel {
                     button.checkOver(lastWindowCS.getRelativePos(new Vector2i(ee)));
             }
             // событие нажатия мыши
-        } else if (e instanceof EventMouseButton) {
-            if (!lastInside)
+        } else if (e instanceof EventMouseButton ee) {
+            if (!lastInside || !ee.isPressed())
                 return;
 
             Vector2i relPos = lastWindowCS.getRelativePos(lastMove);
