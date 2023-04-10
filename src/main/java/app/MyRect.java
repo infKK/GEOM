@@ -5,6 +5,7 @@ import io.github.humbleui.skija.Paint;
 import misc.CoordinateSystem2d;
 import misc.CoordinateSystem2i;
 import misc.Vector2d;
+import misc.Vector2i;
 
 public class MyRect {
     Vector2d a;
@@ -20,6 +21,9 @@ public class MyRect {
 
 
     public void paint(Canvas canvas, CoordinateSystem2i windowCS, CoordinateSystem2d ownCS, Paint p){
+        Vector2i aRect = windowCS.getCoords(a, ownCS);
+        Vector2i bRect = windowCS.getCoords(b, ownCS);
 
     }
+
 }

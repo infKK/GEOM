@@ -164,5 +164,41 @@ public class Vector2d {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
-
+    /**
+     * Конструктор вектора создаёт нулевой вектор
+     */
+    public Vector2d(Vector2i v) {
+        this.x = v.x;
+        this.y = v.y;
+    }
+    /**
+     * Повернуть вектор
+     *
+     * @param a угол
+     * @return повёрнутый вектор
+     */
+    public Vector2d rotated(double a) {
+        return new Vector2d(
+                x * Math.cos(a) - y * Math.sin(a),
+                x * Math.sin(a) + y * Math.cos(a)
+        );
+    }
+    /**
+     * Нормализация вектора
+     *
+     * @return нормированный вектор
+     */
+    public Vector2d norm() {
+        double length = length();
+        return new Vector2d(x / length, y / length);
+    }
+    /**
+     * Векторное умножение векторов
+     *
+     * @param v второй вектор
+     * @return результат умножения
+     */
+    public double cross(Vector2d v) {
+        return this.x * v.y - this.y * v.x;
+    }
 }

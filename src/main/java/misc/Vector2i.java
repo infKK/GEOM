@@ -142,4 +142,12 @@ public class Vector2i {
         result = 31 * result + y;
         return result;
     }
+    /**
+     * Получить целочисленный вектор
+     *
+     * @return целочисленный вектор
+     */
+    public Vector2i intVector() {
+        return new Vector2i((int) x, (int) y);
+    }
 }
