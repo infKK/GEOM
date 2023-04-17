@@ -137,7 +137,7 @@ public class PanelControl extends GridPanel {
             if (!cntField.hasValidIntValue()) {
                 PanelLog.warning("кол-во точек указано неверно");
             } else
-                PanelRendering.task.addRandomCircles(cntField.intValue());
+                PanelRendering.task.addRandomRects(cntField.intValue());
         });
         buttons.add(addPoints);
 // управление

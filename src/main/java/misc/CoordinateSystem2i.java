@@ -265,4 +265,5 @@ public class CoordinateSystem2i {
                 (size.y - 1) / (coordinateSystem.getSize().y - 1)
         );
     }
+
 }

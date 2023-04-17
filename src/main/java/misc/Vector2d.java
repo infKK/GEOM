@@ -92,6 +92,18 @@ public class Vector2d {
     }
 
     /**
+     * Умножение вектора на число
+     *
+     * @param v вектор
+     * @param a число
+     * @return результат умножения вектора на число
+     */
+
+    public Vector2d mul( double a) {
+        return new Vector2d(x * a, y * a);
+    }
+
+    /**
      * Получить случайное значение в заданном диапазоне [min,max)
      *
      * @param min нижняя граница
@@ -171,6 +183,16 @@ public class Vector2d {
         this.x = v.x;
         this.y = v.y;
     }
+
+    /**
+     * Получить целочисленный вектор
+     *
+     * @return целочисленный вектор
+     */
+    public Vector2i intVector() {
+        return new Vector2i((int) x, (int) y);
+    }
+
     /**
      * Повернуть вектор
      *

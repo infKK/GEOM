@@ -201,6 +201,39 @@ public class Task {
     }
 
     /**
+     * Добавить случайные точки
+     *
+     * @param cnt кол-во случайных точек
+     */
+    public void addRandomRects(int cnt) {
+        // если создавать точки с полностью случайными координатами,
+        // то вероятность того, что они совпадут крайне мала
+        // поэтому нужно создать вспомогательную малую целочисленную ОСК
+        // для получения случайной точки мы будем запрашивать случайную
+        // координату этой решётки (их всего 30х30=900).
+        // после нам останется только перевести координаты на решётке
+        // в координаты СК задачи
+        CoordinateSystem2i addGrid = new CoordinateSystem2i(30, 30);
+
+        // повторяем заданное количество раз
+        for (int i = 0; i < cnt; i++) {
+            // получаем случайные координаты на решётке
+            Vector2i gridPos = addGrid.getRandomCoords();
+            // получаем координаты в СК задачи
+            Vector2d pos = ownCS.getCoords(gridPos, addGrid);
+            // получаем случайные координаты на решётке
+            Vector2i gridPos2 = addGrid.getRandomCoords();
+            // получаем координаты в СК задачи
+            Vector2d pos2 = ownCS.getCoords(gridPos2, addGrid);
+            // получаем случайные координаты на решётке
+            Vector2i gridPos3 = addGrid.getRandomCoords();
+            // получаем координаты в СК задачи
+            Vector2d pos3 = ownCS.getCoords(gridPos3, addGrid);
+            myRects.add(new MyRect(pos, pos2, pos3));
+        }
+    }
+
+    /**
      * Очистить задачу
      */
     public void clear() {

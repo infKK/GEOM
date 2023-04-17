@@ -285,4 +285,5 @@ public class CoordinateSystem2d {
 
         set(newXMin, newYMin, newXMax - newXMin, newYMax - newYMin);
     }
+
 }
