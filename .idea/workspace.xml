@@ -8,15 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="circles">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/MyRect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/MyRect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/MyCircle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/MyCircle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2d.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2i.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2i.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/misc/Vector2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/Vector2d.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/misc/Vector2i.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/Vector2i.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +124,7 @@
       <workItem from="1679562742681" duration="2196000" />
       <workItem from="1681107397799" duration="6102000" />
       <workItem from="1681712543313" duration="3696000" />
+      <workItem from="1681977877059" duration="2907000" />
     </task>
     <task id="LOCAL-00001" summary="skija connected">
       <created>1674121663690</created>

@@ -2,10 +2,8 @@ package app;
 
 import io.github.humbleui.skija.Canvas;
 import io.github.humbleui.skija.Paint;
-import misc.CoordinateSystem2d;
-import misc.CoordinateSystem2i;
-import misc.Vector2d;
-import misc.Vector2i;
+import io.github.humbleui.skija.RRect;
+import misc.*;
 
 public class MyCircle {
     Vector2d a1;
@@ -36,15 +34,26 @@ public class MyCircle {
             // x координата первой точки
             points[i * 4] = (float) (center.x + radX * Math.cos(Math.PI / 20 * i));
             // y координата первой точки
-            points[i * 4 + 1] = (float) (center.x + radY * Math.sin(Math.PI / 20 * i));
+            points[i * 4 + 1] = (float) (center.y + radY * Math.sin(Math.PI / 20 * i));
 
             // x координата второй точки
             points[i * 4 + 2] = (float) (center.x + radX * Math.cos(Math.PI / 20 * (i + 1)));
             // y координата второй точки
-            points[i * 4 + 3] = (float) (center.x + radY * Math.sin(Math.PI / 20 * (i + 1)));
+            points[i * 4 + 3] = (float) (center.y + radY * Math.sin(Math.PI / 20 * (i + 1)));
         }
         // рисуем линии
         canvas.drawLines(points, p);
+
+
+        // сохраняем цвет рисования
+        int paintColor = p.getColor();
+        // задаём красный цвет
+        p.setColor(Misc.getColor(200, 255, 0, 0));
+        canvas.drawRRect(RRect.makeXYWH(center.x - 4, center.y - 4, 8, 8, 4), p);
+        canvas.drawRRect(RRect.makeXYWH(b.x - 4, b.y - 4, 8, 8, 4), p);
+        // восстанавливаем исходный цвет рисования
+        p.setColor(paintColor);
+
 
     }
 }

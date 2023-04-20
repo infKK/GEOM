@@ -120,6 +120,8 @@ public class Task {
         renderTask(canvas, windowCS);
     }
 
+    int s = 0;
+
     /**
      * Клик мыши по пространству задачи
      *
@@ -132,10 +134,17 @@ public class Task {
         Vector2d taskPos = ownCS.getCoords(pos, lastWindowCS);
         // если левая кнопка мыши, добавляем в первое множество
         if (mouseButton.equals(MouseButton.PRIMARY)) {
-            addRectPoint(taskPos, 0);
+            addRectPoint(taskPos, s);
+            s++;
+            if (s > 2)
+                s = 0;
             // если правая, то во второе
         } else if (mouseButton.equals(MouseButton.SECONDARY)) {
-            addRectPoint(taskPos, 1);
+            addCirclePoint(taskPos, s);
+            s++;
+
+            if (s > 1)
+                s = 0;
         }
     }
 
@@ -160,6 +169,7 @@ public class Task {
     }
 
     public void addCirclePoint(Vector2d pos, int pointNum) {
+        System.out.println("addCirclePoint " +pointNum);
         if (pointNum != 1)
             cPos[pointNum] = pos;
         else
