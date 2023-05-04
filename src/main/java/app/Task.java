@@ -7,10 +7,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.github.humbleui.jwm.MouseButton;
 import io.github.humbleui.skija.*;
 import lombok.Getter;
-import misc.CoordinateSystem2d;
-import misc.CoordinateSystem2i;
-import misc.Vector2d;
-import misc.Vector2i;
+import misc.*;
 import panels.PanelLog;
 
 import java.util.ArrayList;
@@ -169,7 +166,7 @@ public class Task {
     }
 
     public void addCirclePoint(Vector2d pos, int pointNum) {
-        System.out.println("addCirclePoint " +pointNum);
+        System.out.println("addCirclePoint " + pointNum);
         if (pointNum != 1)
             cPos[pointNum] = pos;
         else
@@ -251,6 +248,9 @@ public class Task {
         solved = false;
     }
 
+    MyCircle resC;
+    MyRect resR;
+
     /**
      * Решить задачу
      */
@@ -258,29 +258,27 @@ public class Task {
         // очищаем списки
         crossed.clear();
         single.clear();
+        resC = null;
+        resR = null;
 
-        // перебираем пары точек
-        for (int i = 0; i < points.size(); i++) {
-            for (int j = i + 1; j < points.size(); j++) {
-                // сохраняем точки
-                Point a = points.get(i);
-                Point b = points.get(j);
-                // если точки совпадают по положению
-                if (a.pos.equals(b.pos) && !a.pointSet.equals(b.pointSet)) {
-                    if (!crossed.contains(a)) {
-                        crossed.add(a);
-                        crossed.add(b);
-                    }
+
+        int maxRectCnt = 0;
+
+        for (MyCircle circle : myCircles) {
+            for (MyRect rect : myRects) {
+                int rectCnt = 0;
+
+                for (int i = 0; i < 1000; i++) {
+                    Vector2d pos = ownCS.getRandomCoords();
+                    if (circle.contains(pos) && rect.contains(pos))
+                        rectCnt++;
+                }
+                if (rectCnt > maxRectCnt) {
+                    maxRectCnt = rectCnt;
                 }
             }
         }
 
-        /// добавляем вс
-        for (Point point : points)
-            if (!crossed.contains(point))
-                single.add(point);
-        solved = true;
-        PanelLog.warning("Вызван метод solve()\n Пока что решения нет");
     }
 
     /**
@@ -360,6 +358,13 @@ public class Task {
             for (MyCircle p : myCircles) {
                 p.paint(canvas, windowCS, ownCS, paint);
             }
+
+            paint.setColor(Misc.getColor(200, 100, 150, 100));
+            if (resC != null)
+                resC.paint(canvas, windowCS, ownCS, paint);
+            if (resR != null)
+                resR.paint(canvas, windowCS, ownCS, paint);
+
         }
         canvas.restore();
     }

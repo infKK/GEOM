@@ -56,4 +56,9 @@ public class MyRect {
 
     }
 
+
+    public boolean contains(Vector2d p){
+        return true;
+    }
+
 }

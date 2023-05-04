@@ -56,5 +56,13 @@ public class MyCircle {
 
 
     }
-}
+
+    public boolean contains(Vector2d p){
+        if ((a1.x- p.x)*(a1.x- p.x) + (a1.y- p.y)*(a1.y- p.y) <= (a1.x- b1.x)*(a1.x- b1.x) + (a1.y- b1.y)*(a1.y- b1.y)){
+            return true;
+        } else{
+            return  false;
+        }
+
+    }}
 
