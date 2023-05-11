@@ -9,11 +9,34 @@ public class MyRect {
     Vector2d a;
     Vector2d b;
     Vector2d c;
+    Vector2d d;
+    Vector2d p;
 
-    public MyRect(Vector2d a, Vector2d b, Vector2d c) {
+    public MyRect(Vector2d a, Vector2d b, Vector2d p) {
         this.a = a;
         this.b = b;
-        this.c = c;
+        this.p = p;
+
+        // создаём линию
+        Line line = new Line(a, b);
+        // рассчитываем расстояние от прямой до точки
+        double dist = line.getDistance(p);
+        // рассчитываем векторы для векторного умножения
+        Vector2d AB = Vector2d.subtract(b, a);
+        Vector2d AP = Vector2d.subtract(p, a);
+        // определяем направление смещения
+        double direction = Math.signum(AB.cross(AP));
+        // получаем вектор смещения
+        Vector2d offset = AB.rotated(Math.PI / 2 * direction).norm().mul(dist);
+
+
+        this.a = a;
+        this.b = b;
+
+        // находим координаты вторых двух вершин прямоугольника
+        c = Vector2d.sum(b, offset);
+        d = Vector2d.sum(a, offset);
+
     }
 
 
@@ -57,8 +80,17 @@ public class MyRect {
     }
 
 
-    public boolean contains(Vector2d p){
-        return true;
-    }
+    public boolean contains(Vector2d p) {
+        double SquareABP = 0.5 * Math.abs((b.x - a.x) * (p.y - a.y) - (p.x - a.x) * (b.y - a.y));
+        double SquareBCP = 0.5 * Math.abs((b.x - p.x) * (c.y - p.y) - (c.x - p.x) * (b.y - p.y));
+        double SquareCDP = 0.5 * Math.abs((c.x - d.x) * (p.y - d.y) - (p.x - d.x) * (c.y - d.y));
+        double SquareDAP = 0.5 * Math.abs((d.x - a.x) * (p.y - a.y) - (p.x - a.x) * (d.y - a.y));
+        double RectSquare = Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y)) * Math.sqrt((c.x - d.x) * (c.x - d.x) + (c.y - d.y) * (c.y - d.y));
+        if ((SquareABP + SquareBCP + SquareCDP + SquareDAP) <= RectSquare) {
+            return true;
+        }else{
+                return  false;
+            }
+    }}
 
-}
+

@@ -7,11 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="Mouse">
+    <list default="true" id="4a9ff0d9-4678-4944-a689-5c88d7f8c90a" name="Changes" comment="last5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/MyCircle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/MyCircle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/MyRect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/MyRect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Task.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +124,8 @@
       <workItem from="1681107397799" duration="6102000" />
       <workItem from="1681712543313" duration="3696000" />
       <workItem from="1681977877059" duration="4280000" />
-      <workItem from="1683191337389" duration="2749000" />
+      <workItem from="1683191337389" duration="2826000" />
+      <workItem from="1683796100656" duration="3063000" />
     </task>
     <task id="LOCAL-00001" summary="skija connected">
       <created>1674121663690</created>
@@ -394,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681981273430</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="last5">
+      <created>1683194336294</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1683194336295</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,7 +418,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add task classes" />
     <MESSAGE value="task rendering works" />
     <MESSAGE value="adding points works" />
     <MESSAGE value="log works" />
@@ -437,6 +442,7 @@
     <MESSAGE value="Data Structures" />
     <MESSAGE value="circles" />
     <MESSAGE value="Mouse" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mouse" />
+    <MESSAGE value="last5" />
+    <option name="LAST_COMMIT_MESSAGE" value="last5" />
   </component>
 </project>
