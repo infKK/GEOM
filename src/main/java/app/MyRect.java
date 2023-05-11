@@ -6,10 +6,10 @@ import io.github.humbleui.skija.RRect;
 import misc.*;
 
 public class MyRect {
-    Vector2d a;
-    Vector2d b;
-    Vector2d c;
-    Vector2d d;
+    public Vector2d a;
+    public Vector2d b;
+    public Vector2d c;
+    public Vector2d d;
     Vector2d p;
 
     public MyRect(Vector2d a, Vector2d b, Vector2d p) {

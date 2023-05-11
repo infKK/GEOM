@@ -248,8 +248,8 @@ public class Task {
         solved = false;
     }
 
-    MyCircle resC;
-    MyRect resR;
+    public MyCircle resC;
+    public MyRect resR;
 
     /**
      * Решить задачу
