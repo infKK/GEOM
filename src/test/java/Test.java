@@ -17,10 +17,35 @@ public class Test {
 
     @org.junit.Test
     public void test2() {
-        MyCircle myCircle = new MyCircle(new Vector2d(0, 0), new Vector2d(1, 1));
+        MyCircle myCircle = new MyCircle(new Vector2d(0, 0), new Vector2d(2, 2));
         assert myCircle.contains(new Vector2d(0.5, 0.5));
-        assert !myCircle.contains(new Vector2d(1.5, 1.5));
+        assert !myCircle.contains(new Vector2d(2.5, 1.5));
     }
+    @org.junit.Test
+    public void test3() {
+        MyCircle myCircle = new MyCircle(new Vector2d(1, 0), new Vector2d(4, 3));
+        assert myCircle.contains(new Vector2d(0, 0.5));
+        assert !myCircle.contains(new Vector2d(5, 5));
+    }
+    @org.junit.Test
+    public void test4() {
+        MyRect myRect = new MyRect(new Vector2d(0, 0), new Vector2d(2, 0), new Vector2d(1, 3));
+        assert myRect.contains(new Vector2d(1, 2));
+        assert !myRect.contains(new Vector2d(2.5, 4));
+    }
+    @org.junit.Test
+    public void test5() {
+        MyRect myRect = new MyRect(new Vector2d(0, 0), new Vector2d(3, 0), new Vector2d(1, 3));
+        assert myRect.contains(new Vector2d(1, 2));
+        assert !myRect.contains(new Vector2d(7, 1.3));
+    }
+    @org.junit.Test
+    public void test6() {
+        MyRect myRect = new MyRect(new Vector2d(0, 0), new Vector2d(7, 0), new Vector2d(1, 3));
+        assert myRect.contains(new Vector2d(1, 2));
+        assert !myRect.contains(new Vector2d(8.6, 4));
+    }
+
 
     public void test7() {
         ArrayList<MyCircle> circles = new ArrayList<>();
